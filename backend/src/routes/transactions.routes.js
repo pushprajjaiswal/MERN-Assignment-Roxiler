@@ -1,15 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const transactionController = require('../controllers/transaction.controllers');
-const statisticsController = require('../controllers/statistics.controllers');
-const barChartController = require('../controllers/barChart.controllers');
-const pieChartController = require('../controllers/pieChart.controllers');
-const combinedController = require('../controllers/combined.controllers');
+
+const { transactionController } = require('../controllers/index')
+const { initializeDatabase } = require('../controllers/initializeDatabaseController')
 
 router.get('/transactions', transactionController.getTransactions);
-router.get('/statistics', statisticsController.getStatistics);
-router.get('/bar-chart', barChartController.getBarChart);
-router.get('/pie-chart', pieChartController.getPieChart);
-router.get('/combined', combinedController.getCombinedData);
+router.get('/statistics', transactionController.getStatistics);
+router.get('/bar-chart', transactionController.getBarChart);
+router.get('/pie-chart', transactionController.getPieChart);
+router.get('/combined', transactionController.getCombinedData);
+router.get('/initialize-db', initializeDatabase)
 
 module.exports = router;
