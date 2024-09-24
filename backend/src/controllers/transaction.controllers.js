@@ -158,7 +158,6 @@ exports.getBarChart = async (req, res) => {
     }
 }
 
-
 // get api for pie chart, find unique categories and number of items from that category for the selected month regardless of the year
 exports.getPieChart = async (req, res) => {
     try {
